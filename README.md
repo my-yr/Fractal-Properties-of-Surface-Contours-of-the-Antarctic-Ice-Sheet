@@ -43,19 +43,19 @@
 
 ## 分形计算
 
-该模块是 main 分支的 `fractal_dim_mf_for_both_make.py` 文件。
+该模块是 main 分支的 `fractal_dimension.py` 文件。
 
 - `BaseFractalDimension` 类：用于加载和储存线状分形对象的数据，如形状等；
-- `RulerMethod` 类：用作分形维数的计算。
+- `RulerMethod` 类：使用尺长法对线状分形对象做分形维数的计算。
 
 ## 整体分形计算
 
 该模块位于 main 分支的 `Overall_fractal` 文件夹下。
 
-代码包括了 `exetest_pro_time_github.py` 和 `main.py`。
+代码包括了 `overall_fractal_dimension_calculation.py` 和 `main.py`。
 
-- `exetest_pro_time_github.py` 中定义了用于计算单条等高线整体分形的单个进程 `single_process` 函数；并提供了类 `overall_fractal` 用于开启多个进程同时调用函数 `single_process` 对多条等高线进行整体分形计算。
-- `main.py` 用于调用 `exetest_pro_time_github.py` 和从命令行中提取参数。
+- `overall_fractal_dimension_calculation.py` 中定义了用于计算单条等高线整体分形的单个进程 `single_process` 函数；并提供了类 `overall_fractal` 用于开启多个进程同时调用函数 `single_process` 对多条等高线进行整体分形计算。
+- `main.py` 用于调用 `overall_fractal_dimension_calculation.py` 和从命令行中提取参数。
 
 我们提供了论文中的数据（位于 `data` 文件夹）、结果（位于 `result` 文件夹）并在同目录下的 `example.txt` 中提供了相应的运行命令：
 
@@ -68,10 +68,10 @@ python main.py 4 rema_100.shp BASIN1_rema_100.shp BASIN2_rema_100.shp BASIN3_rem
 
 该模块位于 main 分支的 `Local_fractal` 文件夹下。
 
-代码包括了 `exetest_local_pro_time_github.py` 和 `main.py`。
+代码包括了 `local_fractal_dimension_calculation.py` 和 `main.py`。
 
-- `exetest_local_pro_time_github.py` 中定义了用于计算单条等高线局部分形的单个进程 `single_process` 函数；并提供了类 `local_fractal` 用于开启多个进程同时调用函数 `single_process` 对多条等高线进行局部分形计算。
-- `main.py` 用于调用 `exetest_local_pro_time_github.py` 和从命令行中提取参数。
+- `local_fractal_dimension_calculation.py` 中定义了用于计算单条等高线局部分形的单个进程 `single_process` 函数；并提供了类 `local_fractal` 用于开启多个进程同时调用函数 `single_process` 对多条等高线进行局部分形计算。
+- `main.py` 用于调用 `local_fractal_dimension_calculation.py` 和从命令行中提取参数。
 
 我们提供了论文中的数据（位于 `data` 文件夹）、结果（位于 `result` 文件夹）并在同目录下的 `example.txt` 中提供了相应的运行命令：
 
@@ -84,10 +84,10 @@ python main.py 4 rema_100.shp
 
 该模块位于 main 分支的 `Extract_attributes` 文件夹下。
 
-代码包括了 `acquire_it.py` 和 `main.py`。
+代码包括了 `extract_attributes.py` 和 `main.py`。
 
-- `acquire_it.py` 中定义了 `read_dem_at_point_gdal` 函数（用 GDAL 读取栅格数据在指定点处的属性值）、`csv_based_extract` 函数（读取分形计算结果的 csv 文件）和 `aquire_it` 函数（把各栅格的属性值提取出来并写入结果 csv，包括 surface_elevation、ice_thickness、bed_elevation、surface_temperature 和 bed_roughness）。
-- `main.py` 用于调用 `acquire_it.py` 和从命令行中提取参数。
+- `extract_attributes.py` 中定义了 `read_dem_at_point_gdal` 函数（用 GDAL 读取栅格数据在指定点处的属性值）、`csv_based_extract` 函数（读取分形计算结果的 csv 文件）和 `aquire_it` 函数（把各栅格的属性值提取出来并写入结果 csv，包括 surface_elevation、ice_thickness、bed_elevation、surface_temperature 和 bed_roughness）。
+- `main.py` 用于调用 `extract_attributes.py` 和从命令行中提取参数。
 
 我们提供了论文中的数据（位于 `data` 文件夹）、结果（位于 `result` 文件夹）并在同目录下的 `example.txt` 中提供了相应的运行命令：
 
