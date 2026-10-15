@@ -1,107 +1,107 @@
-# 南极冰盖地形表面等高线的分形属性
+# Fractal Properties of Contours of the Antarctic Ice Sheet Topographic Surface
 
-## 简介
+## Introduction
 
-本项目是论文《南极冰盖地形表面等高线的分形属性》的附属代码。主要包括了数据下载、等高线提取、整体分形计算、局部分形计算和局部属性提取。为了使代码服务不同的人群，我们对代码进行了模块化设计。你可以根据你的目的选用不同的模块，我们对每个模块提供了论文中的数据与结果作为示例。相关文章位于：（待补充论文链接）
+This project is the accompanying code for the paper *Fractal Properties of Contours of the Antarctic Ice Sheet Topographic Surface*. It mainly includes data download, contour extraction, overall fractal computation, local fractal computation, and attribute extraction. To make the code serve different audiences, we designed it in a modular way. You can select different modules according to your purpose, and for each module we provide the data, results, and run commands used in the paper as examples. The related article is available at: (paper link to be added)
 
-## 目录
+## Table of Contents
 
-- [简介](#简介)
-- [项目结构](#项目结构)
-- [数据下载](#数据下载)
-- [等高线提取](#等高线提取)
-- [分形计算](#分形计算)
-- [整体分形计算](#整体分形计算)
-- [局部分形计算](#局部分形计算)
-- [提取属性](#提取属性)
-- [注释](#注释)
-- [联系方式](#联系方式)
+- [Introduction](#introduction)
+- [Project Structure](#project-structure)
+- [Data Download](#data-download)
+- [Contour Extraction](#contour-extraction)
+- [Fractal Computation](#fractal-computation)
+- [Overall Fractal Computation](#overall-fractal-computation)
+- [Local Fractal Computation](#local-fractal-computation)
+- [Attribute Extraction](#attribute-extraction)
+- [Notes](#notes)
+- [Contact](#contact)
 
-## 项目结构
+## Project Structure
 
-该项目分为六个主要组成部分：
+This project consists of six main components:
 
-1. 数据下载
-2. 等高线提取
-3. 分形计算
-4. 整体分形计算
-5. 局部分形计算
-6. 提取属性
+1. Data download
+2. Contour extraction
+3. Fractal computation
+4. Overall fractal computation
+5. Local fractal computation
+6. Attribute extraction
 
-## 数据下载
+## Data Download
 
-- DEM 数据 Gapless-REMA100 的下载地址：<https://figshare.com/articles/dataset/Gapless-REMA100/19122212>
-- 气温数据 RACMO_Temperature_2m_35km 的下载地址：<https://npolar.no/en/quantarctica>，把 Quantarctica 3 包下载下来后找到目录 `Atmosphere/RACMO` 即可找到 RACMO_Temperature_2m_35km 的栅格数据。
-- Bedmap3 的冰厚、基岩高程和裸岩掩膜的栅格数据均在网址 [UK Polar Data Centre - BEDMAP3 - Ice thickness, bed and surface elevation for Antarctica - gridding products](https://ramadda.data.bas.ac.uk/repository/entry/show?entryid=2d0e4791-8e20-46a3-80e4-f5f6716025d2) 上下载。
-- 南极的流域边界数据的详情见网址 [MEaSUREs Antarctic Boundaries for IPY 2007-2009 from Satellite Radar, Version 2 | National Snow and Ice Data Center](https://nsidc.org/data/nsidc-0709/versions/2)，它提供了多种下载方式。
+- DEM data Gapless-REMA100: <https://figshare.com/articles/dataset/Gapless-REMA100/19122212>
+- Temperature data RACMO_Temperature_2m_35km: <https://npolar.no/en/quantarctica>. After downloading the Quantarctica 3 package, go to the `Atmosphere/RACMO` directory to find the raster data of RACMO_Temperature_2m_35km.
+- The Bedmap3 ice thickness, bed elevation, and exposed bedrock mask raster data can all be downloaded from [UK Polar Data Centre - BEDMAP3 - Ice thickness, bed and surface elevation for Antarctica - gridding products](https://ramadda.data.bas.ac.uk/repository/entry/show?entryid=2d0e4791-8e20-46a3-80e4-f5f6716025d2).
+- For details on the Antarctic drainage basin boundary data, see [MEaSUREs Antarctic Boundaries for IPY 2007-2009 from Satellite Radar, Version 2 | National Snow and Ice Data Center](https://nsidc.org/data/nsidc-0709/versions/2), which provides multiple download methods.
 
-## 等高线提取
+## Contour Extraction
 
-该模块位于 main 分支的 `Extract_isoline` 文件夹下。
+This module is located in the `Extract_isoline` folder on the main branch.
 
-我们在南极 DEM 数据 Gapless-REMA100 上按照 100 m 的间隔提取等高线，这一步较为简单，我们直接提供了提取出来的完整等高线的 shapefile 文件和经过挑选后的等高线的 shapefile 文件（在 main 分支的 `Extract_isoline` 文件夹下）。
+We extracted contour lines at 100 m intervals from the Antarctic DEM Gapless-REMA100. This step is relatively simple, so we directly provide the shapefile of the complete extracted contours and the shapefile of the selected contours (in the `Extract_isoline` folder on the main branch).
 
-## 分形计算
+## Fractal Computation
 
-该模块是 main 分支的 `fractal_dimension.py` 文件。
+This module is the `fractal_dimension.py` file on the main branch. The core idea is to compute the fractal dimension of contour lines using the ruler method.
 
-- `BaseFractalDimension` 类：用于加载和储存线状分形对象的数据，如形状等；
-- `RulerMethod` 类：使用尺长法对线状分形对象做分形维数的计算。
+- `BaseFractalDimension` class: loads and stores the data of linear fractal objects, such as their shapes;
+- `RulerMethod` class: computes the fractal dimension of linear fractal objects using the ruler method.
 
-## 整体分形计算
+## Overall Fractal Computation
 
-该模块位于 main 分支的 `Overall_fractal` 文件夹下。
+This module is located in the `Overall_fractal` folder on the main branch. The core idea is to use multiple processes to compute the fractal dimension of each contour line.
 
-代码包括了 `overall_fractal_dimension_calculation.py` 和 `main.py`。
+The code includes `overall_fractal_dimension_calculation.py` and `main.py`.
 
-- `overall_fractal_dimension_calculation.py` 中定义了用于计算单条等高线整体分形的单个进程 `single_process` 函数；并提供了类 `overall_fractal` 用于开启多个进程同时调用函数 `single_process` 对多条等高线进行整体分形计算。
-- `main.py` 用于调用 `overall_fractal_dimension_calculation.py` 和从命令行中提取参数。
+- `overall_fractal_dimension_calculation.py` defines the `single_process` function, a single process for computing the overall fractal dimension of one contour line; it also provides the class `overall_fractal`, which launches multiple processes that call the `single_process` function simultaneously to compute the overall fractal dimension of multiple contour lines.
+- `main.py` calls `overall_fractal_dimension_calculation.py` and extracts parameters from the command line.
 
-我们提供了论文中的数据（位于 `data` 文件夹）、结果（位于 `result` 文件夹）并在同目录下的 `example.txt` 中提供了相应的运行命令：
+We provide the data used in the paper (in the `data` folder), the results (in the `result` folder), and the corresponding run commands in `example.txt` in the same directory:
 
 ```bash
 conda activate fractal
 python main.py 4 rema_100.shp BASIN1_rema_100.shp BASIN2_rema_100.shp BASIN3_rema_100.shp BASIN5_rema_100.shp BASIN6_rema_100.shp BASIN7_rema_100.shp
 ```
 
-## 局部分形计算
+## Local Fractal Computation
 
-该模块位于 main 分支的 `Local_fractal` 文件夹下。
+This module is located in the `Local_fractal` folder on the main branch. The core idea is to use multiple processes to split each contour line into equal-length segments, and then compute the local fractal dimension of each resulting segment.
 
-代码包括了 `local_fractal_dimension_calculation.py` 和 `main.py`。
+The code includes `local_fractal_dimension_calculation.py` and `main.py`.
 
-- `local_fractal_dimension_calculation.py` 中定义了用于计算单条等高线局部分形的单个进程 `single_process` 函数；并提供了类 `local_fractal` 用于开启多个进程同时调用函数 `single_process` 对多条等高线进行局部分形计算。
-- `main.py` 用于调用 `local_fractal_dimension_calculation.py` 和从命令行中提取参数。
+- `local_fractal_dimension_calculation.py` defines the `single_process` function, a single process for computing the local fractal dimension of one contour line; it also provides the class `local_fractal`, which launches multiple processes that call the `single_process` function simultaneously to compute the local fractal dimension of multiple contour lines.
+- `main.py` calls `local_fractal_dimension_calculation.py` and extracts parameters from the command line.
 
-我们提供了论文中的数据（位于 `data` 文件夹）、结果（位于 `result` 文件夹）并在同目录下的 `example.txt` 中提供了相应的运行命令：
+We provide the data used in the paper (in the `data` folder), the results (in the `result` folder), and the corresponding run commands in `example.txt` in the same directory:
 
 ```bash
 conda activate fractal
 python main.py 4 rema_100.shp
 ```
 
-## 提取属性
+## Attribute Extraction
 
-该模块位于 main 分支的 `Extract_attributes` 文件夹下。
+This module is located in the `Extract_attributes` folder on the main branch. The core idea is to use the `gdal` library to perform a GIS overlay analysis between the center point of each local segment and the raster of each attribute, thereby obtaining the attributes of each local segment.
 
-代码包括了 `extract_attributes.py` 和 `main.py`。
+The code includes `extract_attributes.py` and `main.py`.
 
-- `extract_attributes.py` 中定义了 `read_dem_at_point_gdal` 函数（用 GDAL 读取栅格数据在指定点处的属性值）、`csv_based_extract` 函数（读取分形计算结果的 csv 文件）和 `aquire_it` 函数（把各栅格的属性值提取出来并写入结果 csv，包括 surface_elevation、ice_thickness、bed_elevation、surface_temperature 和 bed_roughness）。
-- `main.py` 用于调用 `extract_attributes.py` 和从命令行中提取参数。
+- `extract_attributes.py` defines the `read_dem_at_point_gdal` function (reads the attribute value of raster data at a specified point with GDAL), the `csv_based_extract` function (reads the csv file of the fractal computation results), and the `aquire_it` function (extracts the attribute values from each raster and writes them into the resulting csv, including surface_elevation, ice_thickness, bed_elevation, surface_temperature, and bed_roughness).
+- `main.py` calls `extract_attributes.py` and extracts parameters from the command line.
 
-我们提供了论文中的数据（位于 `data` 文件夹）、结果（位于 `result` 文件夹）并在同目录下的 `example.txt` 中提供了相应的运行命令：
+We provide the data used in the paper (in the `data` folder), the results (in the `result` folder), and the corresponding run commands in `example.txt` in the same directory:
 
 ```bash
 conda activate fractal
 python main.py 0_4000_samelong_rockcount.csv GaplessREMA100.tif bm3_thickness.tif bm3_bed.tif RACMO_Temperature_2m_35km.tif bedmap3_bed_roughness.tif
 ```
 
-## 注释
+## Notes
 
-脚本用 Python 编写。
+The scripts are written in Python.
 
-建议使用 Python 版本 2.7。
+Python version 2.7 is recommended.
 
-## 联系方式
+## Contact
 
-如果您有任何问题、建议或希望合作，请发起问题或联系本仓库的维护者。
+If you have any questions or suggestions, or would like to collaborate, please open an issue or contact the maintainer of this repository.
