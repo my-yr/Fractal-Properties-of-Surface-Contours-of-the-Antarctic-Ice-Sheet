@@ -102,7 +102,7 @@ The scripts are written in Python.
 
 Recommended to use Anaconda's virtual environment.
 
-Library `shapefile`, `shapely`, `numpy` are needed.
+Library `shapefile`, `shapely`, `numpy`, `scipy` are needed.
 
 Python version 2.7 is recommended.
 
