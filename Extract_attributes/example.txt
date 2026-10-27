@@ -1,0 +1,3 @@
+# please open your anaconda prompt and enter the following command
+conda activate fractal
+python main.py 0_4000_samelong_rockcount.csv GaplessREMA100.tif bm3_thickness.tif bm3_bed.tif RACMO_Temperature_2m_35km.tif bedmap3_bed_roughness.tif

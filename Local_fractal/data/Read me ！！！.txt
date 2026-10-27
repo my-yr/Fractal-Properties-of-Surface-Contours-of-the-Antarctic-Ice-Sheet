@@ -1,0 +1,2 @@
+You need to download the surface elevation, ice thickness, bed elevation, surface temperature, and bed roughness Raster into this folder.
+Also you should copy the csv result of local fractal module. 
