@@ -100,6 +100,10 @@ python main.py 0_4000_samelong_rockcount.csv GaplessREMA100.tif bm3_thickness.ti
 
 The scripts are written in Python.
 
+Recommended to use Anaconda's virtual environment.
+
+Library `shapefile`, `shapely`, `numpy` are needed.
+
 Python version 2.7 is recommended.
 
 ## Contact
