@@ -1,0 +1,3 @@
+# please open your anaconda prompt and enter the following command
+conda activate fractal
+python main.py 4 rema_100.shp BASIN1_rema_100.shp BASIN2_rema_100.shp BASIN3_rema_100.shp BASIN5_rema_100.shp BASIN6_rema_100.shp BASIN7_rema_100.shp
