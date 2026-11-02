@@ -1,1 +1,0 @@
-The surface elevation Raster we used was DEM data Gapless-REMA100.
