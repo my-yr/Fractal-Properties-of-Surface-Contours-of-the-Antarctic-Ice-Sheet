@@ -34,6 +34,7 @@ This project consists of six main components:
 - Temperature data RACMO_Temperature_2m_35km: <https://npolar.no/en/quantarctica>. After downloading the Quantarctica 3 package, go to the `Atmosphere/RACMO` directory to find the raster data of RACMO_Temperature_2m_35km.
 - The Bedmap3 ice thickness, bed elevation, and exposed bedrock mask raster data can all be downloaded from [UK Polar Data Centre - BEDMAP3 - Ice thickness, bed and surface elevation for Antarctica - gridding products](https://ramadda.data.bas.ac.uk/repository/entry/show?entryid=2d0e4791-8e20-46a3-80e4-f5f6716025d2).
 - For details on the Antarctic drainage basin boundary data, see [MEaSUREs Antarctic Boundaries for IPY 2007-2009 from Satellite Radar, Version 2 | National Snow and Ice Data Center](https://nsidc.org/data/nsidc-0709/versions/2), which provides multiple download methods.
+- Data and results take up too much memory and cannot be directly stored in the folder, so we have placed them in releases (https://github.com/my-yr/Fractal-Properties-of-Surface-Contours-of-the-Antarctic-Ice-Sheet/releases/tag/v1.0-data).
 
 ## Contour Extraction
 
