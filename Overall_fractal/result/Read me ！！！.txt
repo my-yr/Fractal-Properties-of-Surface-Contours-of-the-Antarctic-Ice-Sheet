@@ -1,0 +1,3 @@
+The result file（Overall_fractal_result.zip） has been stored in the release （https://github.com/my-yr/Fractal-Properties-of-Surface-Contours-of-the-Antarctic-Ice-Sheet/releases/tag/v1.0-data）.
+
+
